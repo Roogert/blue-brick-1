@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { Brickset } from 'src/app/shared/legoset/brickset.model';
 
 @Component({
@@ -7,7 +7,9 @@ import { Brickset } from 'src/app/shared/legoset/brickset.model';
   styleUrls: ['./set-list.component.css']
 })
 export class SetListComponent implements OnInit {
-mySets: Brickset[] = [
+@Input() brickset: Brickset;
+  @Output()currentSelectedBrickset= new EventEmitter<Brickset>();
+  mySets: Brickset[] = [
  new Brickset(
    'Pirates of Barracuda Bay',
     21322,
@@ -21,7 +23,7 @@ mySets: Brickset[] = [
 ), new Brickset(
   'Winnie the Pooh',
    10254,
-   '21326',
+   'Disney',
    'https://live.staticflickr.com/65535/51005074838_b0164a7303_b.jpg'
 )
 ];
@@ -30,4 +32,7 @@ mySets: Brickset[] = [
   ngOnInit(): void {
   }
 
+  handleBricksetSelected(brickset: Brickset){
+    this.currentSelectedBrickset.emit(brickset);
+  }
 }

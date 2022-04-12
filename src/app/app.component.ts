@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'kelley-blue-brick';
+pageDisplayed="have"
+
+onNavigatePage(page:string){
+  this.pageDisplayed=page;
+}
+
 }

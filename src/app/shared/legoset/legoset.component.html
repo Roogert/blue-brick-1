@@ -1,1 +1,16 @@
-<p>I'm a Lego Set!</p>
+<a href="#" class="list-group-item clearfix"
+  (click)="onBricksetSelected()">
+  <div class="float-left">
+    <h4 class="list-group-item-heading">{{ brickset.setName }}</h4>
+    <p class="list-group-item-text mb-0">{{ brickset.setNumber }}</p>
+  </div>
+  <div class="float-right">
+    <img
+      src="{{ brickset.boxArt }}"
+      alt="{{ brickset.boxArt }}"
+      class="img-responsive rounded"
+      style="max-height: 50px"
+    />
+  </div>
+</a>
+

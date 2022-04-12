@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-set-details',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./set-details.component.css']
 })
 export class SetDetailsComponent implements OnInit {
-
+@Input() brickset
   constructor() { }
 
   ngOnInit(): void {
