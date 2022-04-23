@@ -1,23 +1,13 @@
-<div class="row mb-3" >
-  <div class="col-md-12">
-    <app-legoset *ngFor="let bricksetEl of mySets" [brickset]="bricksetEl"
-    (bricksetSelected)="handleBricksetSelected(bricksetEl)"
-    ></app-legoset>
-    <!-- <button class="btn btn-danger">Add Set</button> -->
-    <!-- <a href="#" class="list-group-item clearfix">
-      <div class="float-left">
-        <h4 class="list-group-item-heading">{{ brickset.setName}}</h4>
-        <p class="list-group-item-text mb-0">{{ brickset.setNumber }}</p>
-      </div>
-      <div class="float-right">
-        <img
-          src="{{ brickset.boxArt }}"
-          alt="{{ brickset.boxArt }}"
-          class="img-responsive rounded"
-          style="max-height: 75px"
-        />
-      </div>
-    </a> -->
-
+<div class="row mb-3">
+  <div class="col-md-12" *ngFor="let bricksetElement of mySets; let i = index">
+    <app-legoset [brickset]="bricksetElement" [idx]="i"></app-legoset>
+    <button
+      class="float-right"
+      style="border: none; font-size: 16px"
+      (click)="onRemoveBrickset(i)"
+    >
+      &minus;
+    </button>
+    <button class="btn btn-primary" (click)="onNewBrickset()">Add New Set</button>
   </div>
 </div>

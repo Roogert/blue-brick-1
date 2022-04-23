@@ -1,6 +1,14 @@
-<div class="row mb-3" *ngFor="let brickset of allSets">
-  <div class="col-md-12">
-    <a href="#" class="list-group-item clearfix">
+<div class="row mb-3" >
+  <div class="col-md-9" *ngFor="let bricksetEl of allSets">
+    <app-legoset [brickset]="bricksetEl"></app-legoset>
+    <button
+      class="float-right"
+      style="border: none; font-size: 16px"
+      (click)="onSaveBrickset(bricksetEl)"
+    >
+      &plus;
+    </button>
+    <!-- <a href="#" class="list-group-item clearfix">
       <div class="float-left">
         <h4 class="list-group-item-heading">{{ brickset.setName }}</h4>
         <p class="list-group-item-text mb-0">{{ brickset.setNumber }}</p>
@@ -13,6 +21,6 @@
           style="max-height: 50px"
         />
       </div>
-    </a>
+    </a> -->
   </div>
 </div>

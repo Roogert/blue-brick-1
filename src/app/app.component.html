@@ -1,10 +1,12 @@
 <div class="container">
-  <app-navigation (currentPage)="onNavigatePage($event)"></app-navigation>
+  <app-navigation></app-navigation>
+  <!-- <app-navigation (currentPage)="onNavigatePage($event)"></app-navigation> -->
   <div class="row">
     <div class="col-md-10 mx-auto">
-   <app-have *ngIf="pageDisplayed ==='have'"></app-have>
+      <router-outlet></router-outlet>
+   <!-- <app-have *ngIf="pageDisplayed ==='have'"></app-have>
    <hr />
-<app-want *ngIf="pageDisplayed ==='want'"></app-want>
+<app-want *ngIf="pageDisplayed ==='want'"></app-want> -->
     </div>
   </div>
 </div>

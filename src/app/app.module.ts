@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Directive, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -11,6 +11,15 @@ import { SetListComponent } from './have/set-list/set-list.component';
 import { SetDetailsComponent } from './have/set-details/set-details.component';
 import { LegoResultsComponent } from './want/lego-results/lego-results.component';
 
+import { DropdownDirective } from './shared/directives/dropdown.directive';
+
+// import { Injectable } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, RouterState } from '@angular/router';
+import { HaveHomeComponent } from './have/have-home/have-home.component';
+import { HaveEditorComponent } from './have/have-editor/have-editor.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +31,14 @@ import { LegoResultsComponent } from './want/lego-results/lego-results.component
     SetListComponent,
     SetDetailsComponent,
     LegoResultsComponent,
+    DropdownDirective,
+    HaveHomeComponent,
+    HaveEditorComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,14 +1,12 @@
 <div class="row justify-content-between">
   <div class="col-md-8">
     <h1>My Brick Inventory</h1>
-    <app-set-list
-    (currentSelectedBrickset)="selectedBrickset=$event"></app-set-list>
+    <app-set-list></app-set-list>
   </div>
   <div class="col-md-4">
-    <ng-template #infoText><p>details here</p></ng-template>
-    <app-set-details
-    *ngIf="selectedBrickset; else infoText"
-    [brickset]="selectedBrickset"
-    ></app-set-details>
+
+<router-outlet></router-outlet>
+
+    
   </div>
 </div>

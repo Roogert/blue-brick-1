@@ -1,4 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Injectable } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Brickset } from 'src/app/shared/legoset/brickset.model';
+import { HaveService } from '../have.service';
 
 @Component({
   selector: 'app-set-details',
@@ -6,10 +9,24 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./set-details.component.css']
 })
 export class SetDetailsComponent implements OnInit {
-@Input() brickset
-  constructor() { }
+ brickset: Brickset;
+ idx: number;
+
+  constructor(
+    private haveService: HaveService,
+    private router: Router,
+    private route: ActivatedRoute
+    ) { }
+
+    onEditBrickset() {
+      this.router.navigate(['../', this.idx, 'edit'], { relativeTo: this.route });
+    }
 
   ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      this.idx = +params['id'];
+      this.brickset = this.haveService.getBrickset(this.idx);
+      });
   }
 
 }

@@ -8,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 
 export class NavigationComponent implements OnInit {
-  @Output()currentPage= new EventEmitter<string>()
+  // @Output()currentPage= new EventEmitter<string>()
   collapsed: boolean = true;
   show: boolean = false;
 
@@ -17,8 +17,8 @@ export class NavigationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSelectPage(page: string){
-    this.currentPage.emit(page);
-  }
+  // onSelectPage(page: string){
+  //   this.currentPage.emit(page);
+  // }
 
 }

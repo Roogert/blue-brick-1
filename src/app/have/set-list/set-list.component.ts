@@ -1,38 +1,49 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Injectable } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Brickset } from 'src/app/shared/legoset/brickset.model';
+import { HaveService } from '../have.service';
 
 @Component({
   selector: 'app-set-list',
   templateUrl: './set-list.component.html',
   styleUrls: ['./set-list.component.css']
 })
+
+@Injectable({
+  providedIn: "root",
+})
+
 export class SetListComponent implements OnInit {
 @Input() brickset: Brickset;
-  @Output()currentSelectedBrickset= new EventEmitter<Brickset>();
-  mySets: Brickset[] = [
- new Brickset(
-   'Pirates of Barracuda Bay',
-    21322,
-    'Pirates',
-    'https://live.staticflickr.com/65535/49698377257_be3f773feb_b.jpg'
-), new Brickset(
-  'Razor Crest',
-   75292,
-   'Star Wars',
-   'https://whatsondisneyplus.com/wp-content/uploads/2020/09/8119ul9BR5L._AC_SL1500_-959x800.jpg'
-), new Brickset(
-  'Winnie the Pooh',
-   10254,
-   'Disney',
-   'https://live.staticflickr.com/65535/51005074838_b0164a7303_b.jpg'
-)
-];
-  constructor() { }
+  // @Output()currentSelectedBrickset= new EventEmitter<Brickset>();
+mySets: Brickset [];
+idx: number;
+
+  constructor(private haveService: HaveService,
+  private router: Router,
+  private route: ActivatedRoute
+  ) { }
+
+  onNewBrickset() {
+    this.router.navigate(['new'], { relativeTo: this.route });
+}
 
   ngOnInit(): void {
-  }
-
-  handleBricksetSelected(brickset: Brickset){
-    this.currentSelectedBrickset.emit(brickset);
-  }
+  // Use the Service to set local "myBooks" array to Service/Global "myBooks" array
+  this.mySets = this.haveService.getBricksets();
+  // Listen for changes on the global "myBooks" array and update the local version
+  this.haveService.bricksetListChanged.subscribe((bricksets: Brickset[]) => {
+    this.mySets = bricksets;
+  });
 }
+
+onRemoveBrickset(idx: number) {
+  this.haveService.removeBrickset(idx);
+}
+}
+
+
+  // handleBricksetSelected(brickset: Brickset){
+  //   this.currentSelectedBrickset.emit(brickset);
+  // }
+
