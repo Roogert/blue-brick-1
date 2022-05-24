@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 import { HaveService } from 'src/app/have/have.service';
 import { Brickset } from './brickset.model';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-legoset',
@@ -17,9 +18,9 @@ export class LegosetComponent implements OnInit {
 
 
   ngOnInit(): void {}
-  @Output() bricksetSelected = new EventEmitter<void>();
-//   onBricksetSelected() {
+  @Output() bricksetSelected = new Subject<void>();
+  onBricksetSelected() {
 // // Tell App Component that someone clicked on a set
-//     this.haveService.bricksetSelected.emit(this.brickset);
-//   }
+    this.haveService.bricksetSelected.next(this.brickset);
+  }
 }

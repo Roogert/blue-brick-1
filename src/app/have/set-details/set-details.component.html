@@ -2,37 +2,37 @@
 <app-legoset *ngFor [brickset]="bricksetElement" [idx]="i"></app-legoset>
 
 <a class="dropdown-item" (click)="onEditBrickset()">Update Set</a>
-<!-- 
+<!--
 <a class="dropdown-item" (click)="onRemoveBrickset()">Delete Set</a> -->
 
 <div class="row">
   <div class="col-md-12">
-    <h2>{{brickset.setName}}</h2>
+    <h2>{{brickset.name}}</h2>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-<h3>{{brickset.setNumber}}</h3>
+<h3>{{brickset.year}}</h3>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-<p>{{brickset.theme}}</p>
+<p>{{brickset.num_parts}}</p>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <img src="{{brickset.boxArt}}" alt="" class="img-responsive"  style="max-height:200px"/>
+    <img src="{{brickset.set_img_url}}" alt="" class="img-responsive"  style="max-height:200px"/>
   </div>
 </div>
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-12">
     <small>Tags</small>
   </div>
-</div>
+</div> -->
 
 <hr />
 

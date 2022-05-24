@@ -10,6 +10,7 @@ import { LegosetComponent } from './shared/legoset/legoset.component';
 import { SetListComponent } from './have/set-list/set-list.component';
 import { SetDetailsComponent } from './have/set-details/set-details.component';
 import { LegoResultsComponent } from './want/lego-results/lego-results.component';
+import { LandingComponent } from './landing/landing.component';
 
 import { DropdownDirective } from './shared/directives/dropdown.directive';
 
@@ -19,6 +20,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, RouterState } from '@angular/router';
 import { HaveHomeComponent } from './have/have-home/have-home.component';
 import { HaveEditorComponent } from './have/have-editor/have-editor.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RebrickableSearchComponent } from './landing/rebrickable-search/rebrickable-search.component';
+import { RebrickableResultsComponent } from './landing/rebrickable-results/rebrickable-results.component';
+import { AuthComponent } from './shared/auth/auth.component';
+
 
 @NgModule({
   declarations: [
@@ -34,11 +41,17 @@ import { HaveEditorComponent } from './have/have-editor/have-editor.component';
     DropdownDirective,
     HaveHomeComponent,
     HaveEditorComponent,
+    LandingComponent,
+    RebrickableSearchComponent,
+    RebrickableResultsComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

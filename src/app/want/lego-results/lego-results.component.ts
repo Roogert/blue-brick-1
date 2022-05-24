@@ -24,6 +24,10 @@ export class LegoResultsComponent implements OnInit {
 
   ngOnInit(): void {
     this.allSets = this.wantService.getBricksets();
+    this.wantService.bricksetListChanged.subscribe(updatedBrickset=>{
+      console.log( updatedBrickset);
+      this.allSets = updatedBrickset;
+    });
   }
 
 onSaveBrickset(brickset: Brickset){

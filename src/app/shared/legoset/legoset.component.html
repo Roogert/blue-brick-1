@@ -5,15 +5,17 @@ class="list-group-item clearfix"
 routerLinkActive="active"
 >
   <div class="float-left">
-    <h4 class="list-group-item-heading">{{ brickset.setName }}</h4>
-    <p class="list-group-item-text mb-0">{{ brickset.setNumber }}</p>
+    <h3 class="list-group-item-heading">{{ brickset.name }}</h3>
+    <h4 class="list-group-item-heading">{{ brickset.set_num}}</h4>
+    <p class="list-group-item-text mb-0">Year: {{ brickset.year }}</p>
+    <p class="list-group-item-text mb-0">Piece Count: {{ brickset.num_parts }}</p>
   </div>
   <div class="float-right">
     <img
-      src="{{ brickset.boxArt }}"
-      alt="{{ brickset.boxArt }}"
+      src="{{ brickset.set_img_url }}"
+      alt="{{ brickset.set_img_url }}"
       class="img-responsive rounded"
-      style="max-height: 50px"
+      style="max-height: 100px"
     />
   </div>
 </a>

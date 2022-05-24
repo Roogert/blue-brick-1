@@ -8,12 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'kelley-blue-brick';
 
-// backgroundImage="https://unsplash.com/photos/US9Tc9pKNBU";
 
-  // getUrl()
-  // {
-  //   return "url('https://unsplash.com/photos/US9Tc9pKNBU')";
-  // }
 
 }
 

@@ -3,12 +3,11 @@ import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Brickset } from "../shared/legoset/brickset.model";
 
-import { LegosetComponent } from "../shared/legoset/legoset.component";
 
 @Injectable({
   providedIn: "root",
 })
-export class WantService {
+export class LandingService {
   allSets: Brickset[]=[ ];
 
   constructor(private http: HttpClient){ }
@@ -43,6 +42,11 @@ bricksetListChanged = new Subject<Brickset[]>();
   this.bricksetListChanged.next(this.allSets.slice());
 }
 
+setBricksets(bricksets: Brickset[] | []) {
+  console.log('%c  sets: ', 'color: red;', bricksets);
 
+  this.allSets = bricksets || [];
+  this.bricksetListChanged.next(this.allSets.slice());
+}
 
 }

@@ -1,1 +1,40 @@
-<p>have-editor works!</p>
+<form #bricksetFormRef="ngForm" (ngSubmit)="onSubmit(bricksetFormRef)">
+
+  <!-- title -->
+  <div class="form-group">
+    <label for="name">Set Name</label>
+    <input type="text" class="form-control" id="name" name="name" [ngModel]="bricksetDetails.name" />
+  </div>
+
+  <!-- set number -->
+  <div class="form-group">
+    <label for="set_num">Set Number</label>
+    <input type="text" class="form-control" id="set_num" name="set_num" [ngModel]="bricksetDetails.set_num" />
+  </div>
+
+  <!-- Theme -->
+  <div class="form-group">
+    <label for="theme">Genre</label>
+    <select name="theme" id="theme" class="form-control" [ngModel]="bricksetDetails.theme_id">
+      <option disabled selected value>Select a Theme</option>
+      <option value="Pirate">Pirate</option>
+      <option value="HarryPotter">Harry Potter</option>
+      <option value="Disney">Disney</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <!-- BUTTONS -->
+    <button
+      type="submit"
+      class="btn btn-primary mr-3"
+      [disabled]="!bricksetFormRef.valid"
+    >
+      Save
+    </button>
+    <button type="button" class="btn btn-warning" (click)="onResetForm()">
+      Cancel
+    </button>
+
+  </div>
+
+</form>
