@@ -1,7 +1,7 @@
 <!-- Bind the index from the `*ngFor` loop to a property -->
 <app-legoset *ngFor [brickset]="bricksetElement" [idx]="i"></app-legoset>
 
-<a class="dropdown-item" (click)="onEditBrickset()">Update Set</a>
+<!-- <a class="dropdown-item" (click)="onEditBrickset()">Update Set</a> -->
 <!--
 <a class="dropdown-item" (click)="onRemoveBrickset()">Delete Set</a> -->
 
@@ -28,11 +28,7 @@
     <img src="{{brickset.set_img_url}}" alt="" class="img-responsive"  style="max-height:200px"/>
   </div>
 </div>
-<!-- <div class="row">
-  <div class="col-md-12">
-    <small>Tags</small>
-  </div>
-</div> -->
+
 
 <hr />
 
@@ -50,8 +46,8 @@
         Edit Set
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item">Add Set</a>
-        <a class="dropdown-item">Delete Set</a>
+        <a class="dropdown-item" (click)="onEditBrickset()">Edit Set</a>
+        <!-- <a class="dropdown-item" (click)="onRemoveBrickset(i)">Delete Set</a> -->
         <!-- <a class="dropdown-item" href="#">Something else here</a> -->
       </div>
     </div>

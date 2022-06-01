@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Brickset } from 'src/app/shared/legoset/brickset.model';
 import { HaveService } from '../have.service';
@@ -20,6 +20,10 @@ export class SetDetailsComponent implements OnInit {
 
     onEditBrickset() {
       this.router.navigate(['../', this.idx, 'edit'], { relativeTo: this.route });
+    }
+
+    onRemoveBrickset(idx: number) {
+      this.haveService.removeBrickset(idx);
     }
 
   ngOnInit(): void {

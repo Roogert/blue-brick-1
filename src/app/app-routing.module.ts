@@ -13,8 +13,7 @@ const appRoutes: Routes = [
   { path: "", redirectTo: "/have", pathMatch: "full" },
   { path: "landing", component: LandingComponent },
   {
-    path: "have",
-    component: HaveComponent,
+    path: "have", component: HaveComponent,
     children: [
       {path: "", component: HaveHomeComponent},
       {path: 'new', component: HaveEditorComponent },
