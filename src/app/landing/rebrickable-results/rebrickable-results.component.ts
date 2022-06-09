@@ -1,6 +1,7 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { HaveService } from 'src/app/have/have.service';
 import { Brickset } from 'src/app/shared/legoset/brickset.model';
+import { WantService } from 'src/app/want/want.service';
 
 import { LandingService } from '../landing.service';
 
@@ -17,8 +18,10 @@ import { LandingService } from '../landing.service';
 export class RebrickableResultsComponent implements OnInit {
   allSets: Brickset[] = [];
 
-  constructor(private landingService: LandingService,
-    private haveService: HaveService) { }
+  constructor(
+    private landingService: LandingService,
+    private haveService: HaveService,
+    private wantService: WantService) { }
 
   ngOnInit(): void {
     this.allSets = this.landingService.getBricksets();
@@ -28,8 +31,12 @@ export class RebrickableResultsComponent implements OnInit {
     });
   }
 
-  onSaveBrickset(brickset: Brickset){
+  onSaveInventory(brickset: Brickset){
     return this.haveService.saveBrickset(brickset);
   }
+
+  // onSaveWishlist(brickset: Brickset){
+  //   return this.wantService.saveBrickset(brickset);
+  // }
 
 }

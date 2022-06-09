@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthResponseData, AuthService } from './auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -9,8 +11,10 @@ import { AuthService } from './auth.service';
 })
 export class AuthComponent implements OnInit {
 isLoginMode = true;
+errMsg: string = null;
+authObsrv: Observable<AuthResponseData>;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -27,23 +31,30 @@ onAuthFormSubmit(formObj: NgForm) {
       const { email, password } = formObj.value
 
   // Conditional to see what mode we are in
-      if (this.isLoginMode) {
-        // Sign In Logic
-      } else {
-        // Sign Up Logic
-        this.authService.signUp(email, password).subscribe(
-          {
-            next(res) {
-              console.log('res: ', res);
-            },
-            error(msg) {
-              console.log('Error: ', msg);
-            }
-          }
-        );
-      }
+  if (this.isLoginMode) {
+    // Sign In Logic
+    this.authObsrv = this.authService.signIn(email, password);
+  } else {
+    // Sign Up Logic
+    this.authObsrv = this.authService.signUp(email, password);
+  }
 
-      // Observable logic with error handling
+  // Observable logic with error handling
+  this.authObsrv.subscribe(
+        //used object to fix subscription deprication issue
+        {
+          next(res) {
+            console.log('Auth Response Success:', res);
+            if (this.errMsg) this.errMsg = null;
+            this.router.navigate(['have']);
+          },
+          error(err) {
+            console.log('Auth Response Error: ', err);
+            this.errMsg = err.message;
+          }
+        }
+      );
+
 
   // Reset the form
       formObj.reset();

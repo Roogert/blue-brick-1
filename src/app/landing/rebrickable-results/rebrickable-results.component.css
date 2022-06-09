@@ -2,3 +2,9 @@ div{
   align-items:center;
   justify-content:center;
 }
+
+button {
+  display:inline-block;
+  margin:auto;
+  width: 10em;
+}

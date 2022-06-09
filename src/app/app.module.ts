@@ -21,10 +21,11 @@ import { RouterModule, RouterState } from '@angular/router';
 import { HaveHomeComponent } from './have/have-home/have-home.component';
 import { HaveEditorComponent } from './have/have-editor/have-editor.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RebrickableSearchComponent } from './landing/rebrickable-search/rebrickable-search.component';
 import { RebrickableResultsComponent } from './landing/rebrickable-results/rebrickable-results.component';
 import { AuthComponent } from './shared/auth/auth.component';
+import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
 
 
 @NgModule({
@@ -53,7 +54,13 @@ import { AuthComponent } from './shared/auth/auth.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
