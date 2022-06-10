@@ -18,7 +18,6 @@ import { DropdownDirective } from './shared/directives/dropdown.directive';
 
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, RouterState } from '@angular/router';
-import { HaveHomeComponent } from './have/have-home/have-home.component';
 import { HaveEditorComponent } from './have/have-editor/have-editor.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -40,7 +39,6 @@ import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
     SetDetailsComponent,
     LegoResultsComponent,
     DropdownDirective,
-    HaveHomeComponent,
     HaveEditorComponent,
     LandingComponent,
     RebrickableSearchComponent,

@@ -28,9 +28,14 @@ saveBrickset(brickset: Brickset) {
 
 // Delete
 removeBrickset(idx: number) {
+  console.log("removeBrickset from have service was called!")
   if (idx !== -1) {
       // We have a set at that index
       this.mySets.splice(idx, 1)
+      // Send the updated brickset (this.mySets) to those who are subscribed to
+      // bricksetListChanged
+
+      // 1. update the view
       this.bricksetListChanged.next(this.mySets.slice())
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LandingService } from '../landing.service';
+
 @Component({
   selector: 'app-rebrickable-search',
   templateUrl: './rebrickable-search.component.html',
@@ -7,13 +8,13 @@ import { LandingService } from '../landing.service';
 })
 export class RebrickableSearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private landingService: LandingService) { }
 
   ngOnInit(): void {
   }
 
-  //   onFetchBricksets(searchInput:string){
-// this.landingService.fetchBricksets(searchInput)
-//   }
+    onFetchBricksets(searchInput:string){
+this.landingService.fetchBricksets(searchInput)
+  }
 
 }

@@ -35,8 +35,8 @@ export class RebrickableResultsComponent implements OnInit {
     return this.haveService.saveBrickset(brickset);
   }
 
-  // onSaveWishlist(brickset: Brickset){
-  //   return this.wantService.saveBrickset(brickset);
-  // }
+  onSaveWishlist(brickset: Brickset){
+    return this.wantService.saveBrickset(brickset);
+  }
 
 }

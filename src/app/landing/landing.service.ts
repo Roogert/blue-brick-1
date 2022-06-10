@@ -43,8 +43,6 @@ bricksetListChanged = new Subject<Brickset[]>();
 }
 
 setBricksets(bricksets: Brickset[] | []) {
-  console.log('%c  sets: ', 'color: red;', bricksets);
-
   this.allSets = bricksets || [];
   this.bricksetListChanged.next(this.allSets.slice());
 }
