@@ -5,7 +5,6 @@ import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AuthResponseData, AuthService } from './auth.service';
 
-
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -41,23 +40,38 @@ export class AuthComponent implements OnInit {
     }
 
     // Observable logic with error handling
+    // this.authObsrv.subscribe(
+    //   //used object to fix subscription deprication issue
+    //   {
+    //     next(res) {
+    //       console.log('Auth Response Success:', res);
+    //       if (this.errMsg) this.errMsg = null;
+    //       this.router.navigate(['landing']);
+    //     },
+    //     error(err) {
+    //       console.log('Auth Response Error: ', err);
+    //       this.errMsg = err.message;
+    //     },
+    //   }
+    // );
+
+    // // Observable logic with error handling
     this.authObsrv.subscribe(
       //used object to fix subscription deprication issue
       {
-        next(res) {
+        next: (res) => {
           console.log('Auth Response Success:', res);
           if (this.errMsg) this.errMsg = null;
-          // this.router.navigate(['landing']);
+          this.router.navigate(['landing']);
         },
-        error(err) {
+        error: (err) => {
           console.log('Auth Response Error: ', err);
           this.errMsg = err.message;
         },
       }
     );
+
     // Reset the form
     formObj.reset();
-
-
   }
 }

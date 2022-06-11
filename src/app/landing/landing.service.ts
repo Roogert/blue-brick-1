@@ -47,4 +47,7 @@ setBricksets(bricksets: Brickset[] | []) {
   this.bricksetListChanged.next(this.allSets.slice());
 }
 
+bricksetSelected = new Subject<Brickset>();
+// bricksetListChanged = new Subject<Brickset[]>();
+
 }

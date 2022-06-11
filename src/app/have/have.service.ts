@@ -23,20 +23,18 @@ getBricksets(){
 // Create
 saveBrickset(brickset: Brickset) {
   this.mySets.push(brickset);
-  this.bricksetListChanged.next(this.mySets.slice())
+  this.bricksetSelected.next(brickset);
+  this.bricksetListChanged.next(this.mySets.slice());
 }
 
 // Delete
 removeBrickset(idx: number) {
-  console.log("removeBrickset from have service was called!")
   if (idx !== -1) {
       // We have a set at that index
+      this.bricksetSelected.next(this.mySets[idx]);
       this.mySets.splice(idx, 1)
-      // Send the updated brickset (this.mySets) to those who are subscribed to
-      // bricksetListChanged
-
       // 1. update the view
-      this.bricksetListChanged.next(this.mySets.slice())
+      this.bricksetListChanged.next(this.mySets.slice());
   }
 }
 

@@ -20,3 +20,9 @@
     <app-rebrickable-results></app-rebrickable-results>
   </div>
 </div>
+
+<!-- Alert -->
+<app-alert
+  [alertMsg]="alert"
+  *ngIf="alert"
+  [closeModal]="handleCloseModal()"></app-alert>

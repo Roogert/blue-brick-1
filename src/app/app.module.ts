@@ -25,6 +25,7 @@ import { RebrickableSearchComponent } from './landing/rebrickable-search/rebrick
 import { RebrickableResultsComponent } from './landing/rebrickable-results/rebrickable-results.component';
 import { AuthComponent } from './shared/auth/auth.component';
 import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
+import { AlertComponent } from './shared/alert/alert.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
     RebrickableSearchComponent,
     RebrickableResultsComponent,
     AuthComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
