@@ -1,0 +1,13 @@
+<div class="row mb-3">
+  <div class="col-md-12" *ngFor="let bricksetElement of mySets; let i = index">
+    <app-legoset [brickset]="bricksetElement" [idx]="i"></app-legoset>
+    <button
+      class="float-right"
+      style="border: none; font-size: 16px"
+      (click)="onRemoveBrickset(i)"
+    >
+      &minus;
+    </button>
+   
+  </div>
+</div>
