@@ -24,7 +24,9 @@ import { RebrickableResultsComponent } from './landing/rebrickable-results/rebri
 import { AuthComponent } from './shared/auth/auth.component';
 import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
 import { AlertComponent } from './shared/alert/alert.component';
+import { FooterComponent } from './shared/footer/footer.component';
 import { SetWishlistComponent } from './want/set-wishlist/set-wishlist.component';
+
 
 
 @NgModule({
@@ -43,6 +45,7 @@ import { SetWishlistComponent } from './want/set-wishlist/set-wishlist.component
     RebrickableResultsComponent,
     AuthComponent,
     AlertComponent,
+    FooterComponent,
     SetWishlistComponent,
   ],
   imports: [
