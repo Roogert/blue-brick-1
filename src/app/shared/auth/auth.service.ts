@@ -3,9 +3,10 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { BehaviorSubject, tap } from "rxjs";
 import { User } from "./user.model";
+import { environment } from "src/environments/environment";
 
 
-const AUTH_API_KEY = "AIzaSyBQV40RWI5AXFpgKnu-3nKxukFddVvd3yk";
+const AUTH_API_KEY = environment.API_FIREBASE_TOKEN;
 const SIGN_UP_URL = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=";
 const SIGN_IN_URL = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=";
 

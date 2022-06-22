@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Brickset } from "../shared/legoset/brickset.model";
-
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root",
@@ -15,7 +15,7 @@ export class LandingService {
 bricksetListChanged = new Subject<Brickset[]>();
 
    fetchBricksets(searchInput: string){
-    const setInfo = "https://rebrickable.com/api/v3/lego/sets/?search=" + searchInput +"&key=30dde2f73200e1b1c5406c6016f65bd2";
+    const setInfo = "https://rebrickable.com/api/v3/lego/sets/?search=" + searchInput + environment.API_REBRICKABLE_TOKEN;
     this.http.get<Brickset>(setInfo).subscribe((response) => {
     this.allSets = [];
       console.log('response', response);

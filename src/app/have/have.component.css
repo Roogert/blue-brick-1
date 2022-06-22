@@ -2,3 +2,7 @@ h1{
   color: goldenrod;
   padding: 15px;
 }
+
+.row {
+  height: 100vh;
+ }

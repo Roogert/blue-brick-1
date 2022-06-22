@@ -13,8 +13,8 @@ export class RebrickableSearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-    onFetchBricksets(searchInput:string){
-this.landingService.fetchBricksets(searchInput)
+  onFetchBricksets(searchInput:string){
+    this.landingService.fetchBricksets(searchInput)
   }
 
 }

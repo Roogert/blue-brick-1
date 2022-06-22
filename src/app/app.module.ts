@@ -26,6 +26,7 @@ import { RebrickableResultsComponent } from './landing/rebrickable-results/rebri
 import { AuthComponent } from './shared/auth/auth.component';
 import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
 import { AlertComponent } from './shared/alert/alert.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { AlertComponent } from './shared/alert/alert.component';
     RebrickableResultsComponent,
     AuthComponent,
     AlertComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
