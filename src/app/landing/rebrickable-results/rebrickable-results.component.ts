@@ -17,6 +17,7 @@ import { LandingService } from '../landing.service';
 
 export class RebrickableResultsComponent implements OnInit {
   allSets: Brickset[] = [];
+  alert: string;
 
   constructor(
     private landingService: LandingService,
@@ -31,6 +32,7 @@ export class RebrickableResultsComponent implements OnInit {
     });
   }
 
+  
   onSaveInventory(brickset: Brickset){
     return this.haveService.saveBrickset(brickset);
   }
