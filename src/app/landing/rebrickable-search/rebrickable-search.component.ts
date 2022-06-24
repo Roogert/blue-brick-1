@@ -14,7 +14,8 @@ export class RebrickableSearchComponent implements OnInit {
   }
 
   onFetchBricksets(searchInput:string){
-    this.landingService.fetchBricksets(searchInput)
+    this.landingService.fetchBricksets(searchInput);
+    
   }
 
 }

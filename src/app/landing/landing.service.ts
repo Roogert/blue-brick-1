@@ -16,10 +16,11 @@ bricksetListChanged = new Subject<Brickset[]>();
 
    fetchBricksets(searchInput: string){
     const setInfo = "https://rebrickable.com/api/v3/lego/sets/?search=" + searchInput + environment.API_REBRICKABLE_TOKEN;
-    this.http.get<Brickset>(setInfo).subscribe((response) => {
+    this.http.get<Brickset[]>(setInfo).subscribe((response) => {
     this.allSets = [];
-      console.log('response', response);
-    this.saveBricksets(response);
+      const brickFilter = response['results'].filter(set => set.num_parts > 0);
+      console.log('response', brickFilter);
+    this.saveBricksets(brickFilter);
     });
   }
 
@@ -30,7 +31,7 @@ bricksetListChanged = new Subject<Brickset[]>();
   saveBricksets(bricksets){
     console.log(bricksets);
   //map over all set results
-    bricksets.results.map((brickset) => {
+    bricksets.forEach((brickset) => {
     const { name, year, num_parts, set_img_url, set_num} =brickset;
     //for each set result, create new set
     const newBrickset = new Brickset(
